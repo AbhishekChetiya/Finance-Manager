@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import main from '../../main';
+import main from '../../main.jsx';
 import { useAuth } from './AuthContext';
 import { Navigate } from 'react-router-dom';
 const FinanceTracker = () => {

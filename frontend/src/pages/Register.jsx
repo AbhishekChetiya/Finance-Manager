@@ -1,4 +1,4 @@
-import From from "./Form";
+import From from "./Form.jsx";
 function Register() {
     return (
       <div>
