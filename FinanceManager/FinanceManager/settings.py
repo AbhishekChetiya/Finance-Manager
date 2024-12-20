@@ -12,24 +12,20 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from dotenv import load_dotenv
-
 import os
+import dj_database_url
 
 load_dotenv()
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET')
+SECRET_KEY = os.getenv('SECRET_KEY', 'fallback-secret-key')  # Optional fallback, avoid for production
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
 # Rest framework settings
 from datetime import timedelta
@@ -49,7 +45,7 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     'ALGORITHM': 'HS256',
-    'SIGNING_KEY': 'your_secret_key',  # Replace with your own secure secret key
+    'SIGNING_KEY': os.getenv('JWT_SIGNING_KEY', 'your_secret_key'),
     'VERIFYING_KEY': None,
     'AUTH_HEADER_TYPES': ('Bearer',),
     'USER_ID_FIELD': 'id',
@@ -58,9 +54,6 @@ SIMPLE_JWT = {
     'TOKEN_TYPE_CLAIM': 'token_type',
 }
 
-# Application definition
-
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -68,7 +61,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
     'MainApp',
     'rest_framework',
     'corsheaders',
@@ -107,14 +99,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'FinanceManager.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
+# Database configuration with dj-database-url
 DATABASES = {
-    'default': os.getenv('DATABASE_URL', default='postgres://localhost')
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL', 'postgres://localhost'))
 }
-
 
 
 # Password validation
