@@ -10,7 +10,7 @@ import {
     Legend,
     ArcElement,
 } from "chart.js";
-import run from "./FinanceAdivser.jsx";
+import run from "./FinanceAdivser.js";
 import ReactMarkdown from "react-markdown";
 
 // Register Chart.js components

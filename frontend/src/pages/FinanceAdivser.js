@@ -85,16 +85,6 @@ const updateHistory = (role, message) => {
   }
 };
 
-export const StartChat = async () => {
-  // Initialize with just the system prompt
-  conversationHistory = [
-    {
-      role: "model",
-      parts: [{ text: prompt }],
-    },
-  ];
-  return "Great to meet you. What would you like to know?";
-};
 
 
 export default async function run(user_input) {
