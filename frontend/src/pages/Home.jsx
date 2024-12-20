@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import main from '../../main.jsx';
+
 import { useAuth } from './AuthContext';
 import { Navigate } from 'react-router-dom';
+import main from '../../main';
 const FinanceTracker = () => {
     const [data, setData] = useState([]);
     const [maxPage, setMaxPage] = useState(0);
