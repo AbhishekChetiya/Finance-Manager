@@ -209,7 +209,7 @@ const FinancialChart = () => {
                 )}
 
                 {/* Check if email exists and render the email form if present */}
-                {email && (
+                {/* {email && (
                     <div className="mt-4 p-4 bg-gradient-to-r from-green-50 to-green-100 border-l-4 border-green-500 rounded-lg shadow-md">
                         <h3 className="text-lg font-semibold text-green-800 mb-2">
                             Send an Email
@@ -245,7 +245,7 @@ const FinancialChart = () => {
                             </button>
                         </form>
                     </div>
-                )}
+                )} */}
             </div>
         </div>
     );
