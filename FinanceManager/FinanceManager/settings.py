@@ -112,14 +112,7 @@ WSGI_APPLICATION = 'FinanceManager.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # Use 'postgresql' for PostgreSQL
-        'NAME': os.getenv('DATABASE'),  # Replace with your actual DB name
-        'USER': os.getenv('USER'),  # Replace with your DB username
-        'PASSWORD': os.getenv('PASSWORD'),  # Replace with your DB password
-        'HOST': os.getenv('HOSTNAME'),  # Or your PostgreSQL server IP address
-        'PORT': '5432',  # Default PostgreSQL port (use the port you're using if it's different)
-    }
+    'default': os.getenv('DATABASE_URL', default='postgres://localhost')
 }
 
 
