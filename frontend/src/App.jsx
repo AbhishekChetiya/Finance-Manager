@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { BrowserRouter,Route ,Router, Navigate, Routes } from 'react-router-dom'
-import Login from './pages/login.jsx'
+import Login from './pages/Login.jsx'
 import ProtectedRouter from './component/ProtectedRouter.jsx'
 import Home from './pages/Home.jsx'
 import NotFound from './pages/NotFound.jsx'
